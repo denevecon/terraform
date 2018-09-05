@@ -1,10 +1,13 @@
+variable "vpc_cidr" {}
+variable "azs" {}
+
 module "vpc" {
   source = "../modules/vpc/"
 
   # name = "complete-example"
 
-  cidr = "10.10.0.0/16"
-  azs  = "eu-west-1a"
+  cidr = "${var.vpc_cidr}"
+  azs  = "${var.azs}"
 
   # azs                 = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
   # private_subnets     = ["10.10.1.0/24", "10.10.2.0/24", "10.10.3.0/24"]

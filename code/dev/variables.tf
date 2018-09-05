@@ -77,10 +77,10 @@ variable "create_database_subnet_group" {
   default     = true
 }
 
-variable "azs" {
-  description = "A list of availability zones in the region"
-  default     = []
-}
+# variable "azs" {
+#   description = "A list of availability zones in the region"
+#   default     = []
+# }
 
 variable "enable_dns_hostnames" {
   description = "Should be true to enable DNS hostnames in the VPC"
