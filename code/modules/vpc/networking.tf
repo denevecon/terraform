@@ -68,3 +68,7 @@ resource "aws_eip" "ip" {
   vpc      = true
   instance = "${aws_instance.example.id}"
 }
+
+output "vpc_id" {
+  value = "${aws_vpc.example.id}"
+}
