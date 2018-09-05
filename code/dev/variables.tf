@@ -1,7 +1,7 @@
-variable "vpc_cidr" {
-  description = "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
-  default     = "0.0.0.0/0"
-}
+# variable "vpc_cidr" {
+#   description = "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
+#   default     = "0.0.0.0/0"
+# }
 
 variable "azs" {}
 
@@ -10,10 +10,10 @@ variable "create_vpc" {
   default     = true
 }
 
-# variable "name" {
-#   description = "Name to be used on all the resources as identifier"
-#   default     = ""
-# }
+variable "name" {
+  description = "Name to be used on all the resources as identifier"
+  default     = ""
+}
 
 variable "cidr" {
   description = "The CIDR block for the VPC. Default value is a valid CIDR, but not acceptable by AWS and should be overridden"
@@ -32,7 +32,7 @@ variable "instance_tenancy" {
 
 variable "public_subnets" {
   description = "A list of public subnets inside the VPC"
-  default     = []
+  default     = "0.0.0.0/0"
 }
 
 variable "private_subnets" {
