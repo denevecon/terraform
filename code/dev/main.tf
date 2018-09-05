@@ -1,10 +1,7 @@
-variable "vpc_cidr" {}
-variable "azs" {}
-
 module "vpc" {
   source = "../modules/vpc/"
 
-  # name = "complete-example"
+  name = "example"
 
   cidr = "${var.vpc_cidr}"
   azs  = "${var.azs}"

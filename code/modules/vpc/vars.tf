@@ -7,3 +7,8 @@ variable "azs" {
   description = "Availability zone for the VPC"
   default     = "eu-west-1a"
 }
+
+variable "name" {
+  description = "Name to be used on all the resources as identifier"
+  default     = ""
+}
