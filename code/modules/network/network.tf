@@ -96,30 +96,32 @@ module "private_subnet" {
 #   route_zone_id      = "${var.route_zone_id}"
 # }
 
-# resource "aws_network_acl" "acl" {
-#   vpc_id     = "${module.vpc.vpc_id}"
-#   subnet_ids = ["${concat(split(",", module.public_subnet.subnet_ids), split(",", module.private_subnet.subnet_ids))}"]
+resource "aws_network_acl" "acl" {
+  vpc_id     = "${module.vpc.vpc_id}"
+  subnet_ids = ["${concat(split(",", module.public_subnet.subnet_ids), split(",", module.private_subnet.subnet_ids))}"]
 
-#   ingress {
-#     protocol   = "-1"
-#     rule_no    = 100
-#     action     = "allow"
-#     cidr_block = "0.0.0.0/0"
-#     from_port  = 0
-#     to_port    = 0
-#   }
+  ingress {
+    protocol   = "-1"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
+  }
 
-#   egress {
-#     protocol   = "-1"
-#     rule_no    = 100
-#     action     = "allow"
-#     cidr_block = "0.0.0.0/0"
-#     from_port  = 0
-#     to_port    = 0
-#   }
+  egress {
+    protocol   = "-1"
+    rule_no    = 100
+    action     = "allow"
+    cidr_block = "0.0.0.0/0"
+    from_port  = 0
+    to_port    = 0
+  }
 
-#   tags { Name = "${var.name}-all" }
-# }
+  tags {
+    Name = "${var.name}-all"
+  }
+}
 
 # VPC
 output "vpc_id" {
@@ -135,9 +137,9 @@ output "public_subnet_ids" {
   value = "${module.public_subnet.subnet_ids}"
 }
 
-# output "private_subnet_ids" {
-#   value = "${module.private_subnet.subnet_ids}"
-# }
+output "private_subnet_ids" {
+  value = "${module.private_subnet.subnet_ids}"
+}
 
 # # Bastion
 # output "bastion_user"       { value = "${module.bastion.user}" }
